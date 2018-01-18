@@ -6,7 +6,7 @@ Created on Tue Jan 16 16:52:48 2018
 """
 
 import requests
-requests.packages.urllib3.disable_warnings()
+#requests.packages.urllib3.disable_warnings()
 import numpy
 import time
 
