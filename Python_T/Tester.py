@@ -8,7 +8,9 @@ Created on Tue Jan 16 19:02:38 2018
 import tkinter as tk
 import time
 import lanse
+
 requests.packages.urllib3.disable_warnings()
+
 def tick():
     theLabel.config(text = str(lanse.getSData()['wind']))
     theLabel.after(1000, tick)
