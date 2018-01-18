@@ -7,10 +7,10 @@ Created on Tue Jan 16 19:02:38 2018
 
 import tkinter as tk
 import time
-import værdata as vær
+import lanse
 
 def tick():
-    theLabel.config(text = str(vær.fåVærData()['windDir']))
+    theLabel.config(text = str(lanse.getSData()['windDir']))
     theLabel.after(1000, tick)
 
 

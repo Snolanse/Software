@@ -10,7 +10,7 @@ requests.packages.urllib3.disable_warnings()
 import numpy
 import time
 
-def fåVærData():
+def getSData():
     """Henter data fra værstasjon via server"""
     URL = "https://feed.metnet.no/current/"
     
