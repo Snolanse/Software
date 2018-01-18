@@ -10,7 +10,7 @@ import time
 import lanse
 
 def tick():
-    theLabel.config(text = str(lanse.getSData()['windDir']))
+    theLabel.config(text = str(lanse.getSData()['timestamp']))
     theLabel.after(1000, tick)
 
 
