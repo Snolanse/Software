@@ -6,7 +6,6 @@ Created on Tue Jan 16 19:02:38 2018
 """
 
 import tkinter as tk
-import time
 import lanse
 
 def tick():
