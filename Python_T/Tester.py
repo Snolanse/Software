@@ -9,7 +9,6 @@ import tkinter as tk
 import time
 import lanse
 
-requests.packages.urllib3.disable_warnings()
 
 def tick():
     theLabel.config(text = str(lanse.getSData()['wind']))
