@@ -37,18 +37,18 @@ import time
 ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=0)
 
 while True:
-    rcv = ser.read(100)
-    print(rcv)
+#    rcv = ser.read(100)
+#    print(rcv)
     ser.write(b"\x48")
     ser.write(b"\x45")
     ser.write(b"\x49")
-    ser.write(b"\x5c")
-    ser.write(b"\x6e")
-    ser.write(b"\x5c")
-    ser.write(b"\x72")
+#    ser.write(b"\x5c")
+#    ser.write(b"\x6e")
+#    ser.write(b"\x5c")
+#    ser.write(b"\x72")
     time.sleep(3)
-    try:
-        for x in rcv:
-            print("{0:b}".format(x))
-    except:
-        print("nogo")
+#    try:
+#        for x in rcv:
+#            print("{0:b}".format(x))
+#    except:
+#        print("nogo")
