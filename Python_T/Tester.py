@@ -39,6 +39,7 @@ while True:
     rcv = ser.read(10)
     print(rcv)
     try:
-        print("{0:b}".format(rcv[0]))
+        for x in rcv:
+            print("{0:b}".format(x))
     except:
         print("nogo")
