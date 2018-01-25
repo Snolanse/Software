@@ -27,10 +27,18 @@ Created on Tue Jan 16 19:02:38 2018
 #
 #root.mainloop()
 
+#"{0:b}".format(binær) blir binær string
+# int(binærstring,2) blir tall
+
+
 import serial
 
-ser = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
+ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 
 while True:
     rcv = ser.read(10)
-    print("Motatt: " + rcv.decode("utf-8"))
+    print(rcv)
+    try:
+        print("{0:b}".format(rcv))
+    except:
+        print("nogo")
