@@ -32,12 +32,21 @@ Created on Tue Jan 16 19:02:38 2018
 
 
 import serial
+import time
 
-ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
+ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=0)
 
 while True:
-    rcv = ser.read(2)
+    rcv = ser.read(100)
     print(rcv)
+    rcv.write(b"\x48")
+    rcv.write(b"\x45")
+    rcv.write(b"\x49")
+    rcv.write(b"\x5c")
+    rcv.write(b"\x6e")
+    rcv.write(b"\x5c")
+    rcv.write(b"\x72")
+    time.sleep(3)
     try:
         for x in rcv:
             print("{0:b}".format(x))
