@@ -33,4 +33,4 @@ ser = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
 
 while True:
     rcv = ser.read(10)
-    print("Motatt: " + rcv)
+    print("Motatt: " + rcv.decode("utf-8"))
