@@ -36,7 +36,7 @@ import serial
 ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 
 while True:
-    rcv = ser.read(10)
+    rcv = ser.read(2)
     print(rcv)
     try:
         for x in rcv:
