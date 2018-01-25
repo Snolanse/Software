@@ -29,8 +29,8 @@ Created on Tue Jan 16 19:02:38 2018
 
 import serial
 
-port = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
+ser = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
 
 while True:
-    rcv = port.read(10)
-    port.write("\r\nYou sent:" + repr(rcv))
+    rcv = ser.read(10)
+    print("Motatt: " + rcv)
