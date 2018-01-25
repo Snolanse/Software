@@ -26,7 +26,7 @@ def getSData():
 
 def wetbulb(temp,hum):
     """rekner ut wet-bulb tempratur ut fra lufttempratur og luftfuktighet""" 
-    wbulb = (20*numpy.arctan(0.151977*(hum + 8.313659)**0.5)
+    wbulb = (temp*numpy.arctan(0.151977*(hum + 8.313659)**0.5)
             + numpy.arctan(temp + hum)
             - numpy.arctan(hum - 1.676331)
             + 0.00391838*hum**(3/2)*numpy.arctan(0.023101*hum)
