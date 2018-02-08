@@ -34,17 +34,22 @@ Created on Tue Jan 16 19:02:38 2018
 import serial
 import time
 
+sd = [b"\x48",b"\x45",b"\x49",b"\x5c",b"\x6e",b"\x5c",b"\x72"]
 ser = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=0)
 
 while True:
 #    rcv = ser.read(100)
 #    print(rcv)
-    ser.write(b"\x48")
-    ser.write(b"\x45")
-    ser.write(b"\x49")
+    for x in sd:
+        ser.write(x)
+    
+#    ser.write(b"\x48")
+#    ser.write(b"\x45")
+#    ser.write(b"\x49")
 #    ser.write(b"\x5c")
 #    ser.write(b"\x6e")
 #    ser.write(b"\x5c")
+#    ser.write(b"\x72")
 #    ser.write(b"\x72")
     time.sleep(3)
 #    try:
