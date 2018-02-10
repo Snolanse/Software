@@ -1,0 +1,15 @@
+--cpu Cortex-M0+ --scatter "./RTE/Device/MKE02Z64VQH4/MKE02Z64xxx4_flash.scf"
+".\objects\clock_config.o"
+".\objects\main.o"
+".\objects\fsl_adc.o"
+".\objects\fsl_clock.o"
+".\objects\fsl_common.o"
+".\objects\fsl_ftm.o"
+".\objects\fsl_gpio.o"
+".\objects\fsl_port.o"
+".\objects\fsl_uart.o"
+".\objects\startup_mke02z4.o"
+".\objects\system_mke02z4.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x1FFFFC00 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Control_System.map" -o .\Objects\Control_System.axf
