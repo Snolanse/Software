@@ -1,0 +1,72 @@
+/*
+ * main.c
+ *
+ *  Created on: 18 Feb 2018
+ *      Author: Mikolaj Jaworski
+ */
+
+//includes ---------------------------------------------------
+#include "clock_config.h"
+#include "MKE02Z4.h"
+
+#include "fsl_adc.h"
+#include "fsl_common.h"
+#include "fsl_gpio.h"
+#include "fsl_port.h"
+#include "fsl_uart.h"
+
+//variables ---------------------------------------------------
+volatile uint32_t msTicks = 0;
+
+//functions ---------------------------------------------------
+void SysTick_Handler() {
+    msTicks += 1;
+}
+
+void delay(uint32_t ms) {
+    uint32_t returnTime = msTicks + ms;
+    while (msTicks < returnTime) {}
+}
+
+void gpio_Init(void)
+{
+
+	gpio_pin_config_t port_handler = { kGPIO_DigitalOutput, 1 };
+	GPIO_PinInit(kGPIO_PORTB, 0U, &port_handler);
+
+
+}
+
+void adc_Init(void)
+{
+	adc_config_t config;
+	void ADC_GetDefaultConfig(config);
+	config.ResolutionMode = kADC_Resolution12BitMode;
+	ADC_Init(ADC, &config);
+	adc_channel_config_t chan_config =
+	{
+		.channelNumber = 0U,
+		.enableContinuousConversion = 1,
+		.enableInterruptOnConversionCompleted = 1
+	};
+}
+
+//main --------------------------------------------------------
+int main(void)
+{
+	SysTick_Handler();
+	gpio_Init();
+
+	while(1)
+	{
+
+		GPIO_PortToggle(kGPIO_PORTB, 0U);
+		delay(200);
+
+	}
+
+}
+
+
+
+

@@ -1,163 +1,0 @@
-Dependencies for Project 'Control_System', Target 'Target 1': (DO NOT MODIFY !)
-F (.\clock_config.h)(0x5A7F4CD2)()
-F (.\clock_config.c)(0x5A7F4CD2)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\clock_config.o --omf_browse .\objects\clock_config.crf --depend .\objects\clock_config.d)
-I (clock_config.h)(0x5A7F4CD2)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (.\main.c)(0x5A7F4F37)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_port.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_gpio.h)(0x5A61DB08)
-I (clock_config.h)(0x5A7F4CD2)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_adc.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_adc.o --omf_browse .\objects\fsl_adc.crf --depend .\objects\fsl_adc.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_adc.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_clock.o --omf_browse .\objects\fsl_clock.crf --depend .\objects\fsl_clock.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_common.o --omf_browse .\objects\fsl_common.crf --depend .\objects\fsl_common.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_ftm.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_ftm.o --omf_browse .\objects\fsl_ftm.crf --depend .\objects\fsl_ftm.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_ftm.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_gpio.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_gpio.o --omf_browse .\objects\fsl_gpio.crf --depend .\objects\fsl_gpio.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_gpio.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_port.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_port.o --omf_browse .\objects\fsl_port.crf --depend .\objects\fsl_port.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_port.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_uart.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\fsl_uart.o --omf_browse .\objects\fsl_uart.crf --depend .\objects\fsl_uart.d)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_uart.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_common.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (.\RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (.\RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (.\RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers\fsl_clock.h)(0x5A61DB08)
-F (RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)()
-F (RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)()
-F (RTE\Device\MKE02Z64VQH4\MKE02Z64xxx4_flash.scf)(0x5A61DB08)()
-F (RTE\Device\MKE02Z64VQH4\MKE02Z64xxx4_ram.scf)(0x5A61DB08)()
-F (RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)()
-F (RTE\Device\MKE02Z64VQH4\startup_MKE02Z4.s)(0x5A61DB08)(--cpu Cortex-M0+ --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "CPU_MKE02Z64VQH4 SETA 1"--list .\listings\startup_mke02z4.lst --xref -o .\objects\startup_mke02z4.o --depend .\objects\startup_mke02z4.d)
-F (RTE\Device\MKE02Z64VQH4\system_MKE02Z4.c)(0x5A61DB08)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKE02Z64VQH4-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0\drivers-IC:\Keil_v5\ARM\PACK\NXP\MKE02Z4_DFP\10.0.0-D__UVISION_VERSION="524" -D_RTE_ -DCPU_MKE02Z64VQH4-o .\objects\system_mke02z4.o --omf_browse .\objects\system_mke02z4.crf --depend .\objects\system_mke02z4.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
-I (RTE\Device\MKE02Z64VQH4\fsl_device_registers.h)(0x5A61DB08)
-I (RTE\Device\MKE02Z64VQH4\MKE02Z4.h)(0x5A61DB08)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm0plus.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h)(0x5A0DBE6A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h)(0x5A0DBE6A)
-I (RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)
-I (RTE\Device\MKE02Z64VQH4\MKE02Z4_features.h)(0x5A61DB08)
-F (RTE\Device\MKE02Z64VQH4\system_MKE02Z4.h)(0x5A61DB08)()
