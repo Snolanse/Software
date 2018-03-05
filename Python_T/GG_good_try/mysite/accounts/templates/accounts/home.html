@@ -8,9 +8,24 @@
 
 <script>
     {% block jquery %}
-    $(".join-form").submit(function(e){
+    $(".join-form").submit(function (e) {
         e.preventDefault()
         console.log($(this).serialize())
+        var sendinfoplz = {% url 'submit' %};
+        $.ajax({
+            method: "POST",
+            data: $(this).serialize(),
+            url: sendinfoplz,
+            success: function (data) {
+                console.log(data)
+            }
+            error: function (data) {
+                console.log("error")
+                console.log(data)
+            }
+            
+        })
+
     })
     
     {% endblock %}
