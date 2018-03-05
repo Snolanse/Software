@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\mysite",
+    "\\mysite\\accounts",
+    "\\mysite\\accounts\\static\\accounts",
+    "\\mysite\\accounts\\templates",
+    "\\mysite\\accounts\\templates\\accounts",
+    "\\mysite\\mysite",
+    "\\mysite\\startside",
+    "\\mysite\\startside\\templates",
+    "\\mysite\\startside\\templates\\startside"
+  ],
+  "SelectedNode": "\\mysite\\db.sqlite3",
+  "PreviewInSolutionExplorer": false
+}

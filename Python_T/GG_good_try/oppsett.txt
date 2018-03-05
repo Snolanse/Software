@@ -1,0 +1,5 @@
+C:\Users\marius\Anaconda3\Scripts\django-admin startproject mysite
+
+må faen spesifisere py filen
+
+Raspberry: python3 apt-get django    ish? spesifiser ivertfall
