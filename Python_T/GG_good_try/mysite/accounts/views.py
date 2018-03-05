@@ -25,7 +25,7 @@ def divtest(request):
     return(1)
 
 def submit(request):
-    info=request.json()['info']
+    info=request.POST.get['info', False]
     print(info)
     g = open("/home/pi/Desktop/test.txt",'w')
     g.write(info)
