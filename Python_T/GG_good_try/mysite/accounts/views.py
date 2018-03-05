@@ -26,6 +26,7 @@ def divtest(request):
 
 def submit(request):
     info=request.POST['info']
+    print(info)
     #img = Image.open('C:/Users/marius/Pictures/Saved Pictures/bk98GsW.jpg')
     #img.show()
     return (1)
