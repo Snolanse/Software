@@ -6,6 +6,15 @@
 <script src="{% static 'accounts/JStest.js' %}"></script>
 {% endblock %}
 
+<script>
+    {% block jquery %}
+    $(".join-form").submit(funtion(e){
+        e.preventDefault()
+        console.log($(this).serialize())
+    })
+
+    {% endblock %}
+</script>
 
 {% block body%}
 <div class="container">
