@@ -11,7 +11,7 @@
     $(".join-form").submit(function (e) {
         e.preventDefault()
         console.log($(this).serialize())
-        var sendinfoplz = {% url 'submit' %};
+        var sendinfoplz = "{% url 'submit' %}";
         $.ajax({
             method: "POST",
             data: $(this).serialize(),
