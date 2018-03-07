@@ -1,2 +1,0 @@
-Goodbye cruel world
-Halla!!

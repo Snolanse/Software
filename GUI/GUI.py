@@ -56,9 +56,7 @@ class AppGui(tk.Tk):# Main GUI class
         for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, MainPage):# Includes all pages
 
             frame = F(container, self)
-
             self.frames[F] = frame
-
             frame.grid(row=0, column=0, sticky="nsew")
 
         self.show_frame(Login)
