@@ -30,8 +30,8 @@ def lancetype(Type, cntrl):#Used to change value of global variable, and change 
 def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be added.
     with open(creds, 'w') as f:  # Creates a document using the variable we made at the top.
         f.write(
-            nameE.get())            '''nameE is the variable we were storing the input to.
-                                    Tkinter makes us use .get() to get the actual string. '''
+            nameE.get())           #nameE is the variable we were storing the input to.
+                                   #Tkinter makes us use .get() to get the actual string.
         f.write('\n')  # Splits the line so both variables are on different lines.
         f.write(pwordE.get())  # Same as nameE just with pword var
         f.close()  # Closes the file
