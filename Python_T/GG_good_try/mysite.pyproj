@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5acd7e27-ee87-4759-b87b-892892474c2c}</ProjectGuid>
+    <ProjectHome>mysite\</ProjectHome>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="accounts\admin.py" />
+    <Compile Include="accounts\apps.py" />
+    <Compile Include="accounts\migrations\__init__.py" />
+    <Compile Include="accounts\models.py" />
+    <Compile Include="accounts\tests.py" />
+    <Compile Include="accounts\urls.py" />
+    <Compile Include="accounts\views.py" />
+    <Compile Include="accounts\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="mysite\settings.py" />
+    <Compile Include="mysite\urls.py" />
+    <Compile Include="mysite\wsgi.py" />
+    <Compile Include="mysite\__init__.py" />
+    <Compile Include="startside\admin.py" />
+    <Compile Include="startside\apps.py" />
+    <Compile Include="startside\migrations\__init__.py" />
+    <Compile Include="startside\models.py" />
+    <Compile Include="startside\tests.py" />
+    <Compile Include="startside\urls.py" />
+    <Compile Include="startside\views.py" />
+    <Compile Include="startside\__init__.py" />
+    <Compile Include="webapp\admin.py" />
+    <Compile Include="webapp\apps.py" />
+    <Compile Include="webapp\migrations\__init__.py" />
+    <Compile Include="webapp\models.py" />
+    <Compile Include="webapp\tests.py" />
+    <Compile Include="webapp\urls.py" />
+    <Compile Include="webapp\views.py" />
+    <Compile Include="webapp\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accounts\migrations\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="accounts\static\accounts\JStest.js" />
+    <Content Include="accounts\static\accounts\style.css" />
+    <Content Include="accounts\templates\accounts\home.html" />
+    <Content Include="accounts\templates\accounts\login.html" />
+    <Content Include="accounts\templates\base.html" />
+    <Content Include="accounts\__pycache__\admin.cpython-36.pyc" />
+    <Content Include="accounts\__pycache__\models.cpython-36.pyc" />
+    <Content Include="accounts\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="accounts\__pycache__\views.cpython-36.pyc" />
+    <Content Include="accounts\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="db.sqlite3" />
+    <Content Include="startside\templates\startside\header.css" />
+    <Content Include="startside\templates\startside\header.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="accounts\" />
+    <Folder Include="accounts\migrations\" />
+    <Folder Include="accounts\migrations\__pycache__\" />
+    <Folder Include="accounts\static\" />
+    <Folder Include="accounts\static\accounts\" />
+    <Folder Include="accounts\templates\" />
+    <Folder Include="accounts\templates\accounts\" />
+    <Folder Include="accounts\__pycache__\" />
+    <Folder Include="mysite" />
+    <Folder Include="startside" />
+    <Folder Include="startside\migrations" />
+    <Folder Include="startside\templates\" />
+    <Folder Include="startside\templates\startside" />
+    <Folder Include="webapp" />
+    <Folder Include="webapp\migrations" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
