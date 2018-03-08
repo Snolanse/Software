@@ -289,6 +289,10 @@ class Home(tk.Frame):# Main page
         label = tk.Label(self, text=("type: ",lanceType), font=LARGE_FONT)
         label.grid(row=0,column=0)
 
+        button1 = tk.Button(self, text="9",
+                            command=lambda: Place(9, controller), )
+        button1.grid(row=1, column=1)
+
 
 
 #"Main loop"------------------------------------------------------------------------------------------------------------
