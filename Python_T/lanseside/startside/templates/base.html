@@ -1,0 +1,49 @@
+﻿<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    {% block scripts %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css" />
+    <script src="{% static 'base.js' %}"></script>
+    {% endblock %}
+
+
+
+    {% block head %}
+    <title>Standard side</title>
+    {% endblock %}
+
+
+</head>
+
+
+
+
+<body>
+
+    
+        <!--<a class="navbar-brand" href="#">Fixed top</a>-->
+        <ul>
+            <!--<div class="container">-->
+                <!--Denne lager menyen-->
+                <li><a class="active" href="/">Startside</a></li>
+                <li><a href="lanser">Lanser</a></li>
+                <li><a href="status">Status</a></li>
+                <li><a href="tilfeldigesider">Hva enn vi trenger</a></li>
+            <!--</div>-->
+        </ul>
+    
+
+    {% block body %}
+    {% endblock %}
+
+</body>
+
+</html>

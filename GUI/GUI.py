@@ -3,6 +3,9 @@ import tkinter as tk
 import os
 
 #Global variables-------------------------------------------------------------------------------------------------------
+global lanceType
+global placement
+
 lanceType = None
 placement = None
 creds = 'tempfile.temp' # Variable that becomes login data document

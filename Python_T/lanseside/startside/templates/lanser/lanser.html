@@ -1,0 +1,54 @@
+﻿{% extends "base.html" %}
+
+
+{% block head %}
+
+<title> Lanseside </title>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'lanser/lanser.css' %}" type="text/css" />
+    <script src="{% static 'lanser/lanser.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <p>
+        <img src={% static "lanser/granaasen.PNG" %} width="312" height="872" usemap="#Map" />
+        <map name="Map">
+
+            <area shape="circle" coords="200,70,19" href="valgtlanse.html" name="lanse1">
+            <area shape="circle" coords="194,107,19" href="valgtlanse.html" name="lanse2">
+            <area shape="circle" coords="180,166,19" href="valgtlanse.html" name="lanse3">
+            <area shape="circle" coords="164,225,19" href="valgtlanse.html" name="lanse4">
+            <area shape="circle" coords="175,374,19" href="valgtlanse.html" name="lanse5">
+            <area shape="circle" coords="195,420,19" href="valgtlanse.html" name="lanse6">
+            <area shape="circle" coords="187,492,19" href="valgtlanse.html" name="lanse7">
+            <area shape="circle" coords="177,567,19" href="valgtlanse.html" name="lanse8">
+            <area shape="circle" coords="138,125,19" href="valgtlanse.html" name="lanse9">
+            <area shape="circle" coords="143,183,19" href="valgtlanse.html" name="lanse10">
+            <area shape="circle" coords="123,253,19" href="valgtlanse.html" name="lanse11">
+            <area shape="circle" coords="111,328,19" href="valgtlanse.html" name="lanse12">
+            <area shape="circle" coords="110,385,19" href="valgtlanse.html" name="lanse13">
+            <area shape="circle" coords="121,425,19" href="valgtlanse.html" name="lanse14">
+            <area shape="circle" coords="114,527,19" href="valgtlanse.html" name="lanse15">
+            <area shape="circle" coords="127,627,19" href="valgtlanse.html" name="lanse16">
+            <area shape="circle" coords="124,691,19" href="valgtlanse.html" name="lanse17">
+            <area shape="circle" coords="102,760,19" href="valgtlanse.html" name="lanse18">
+            <area shape="circle" coords="87,806,19" href="valgtlanse.html" name="lanse19">
+            <area shape="circle" coords="104,554,19" href="valgtlanse.html" name="lanse20">
+            <area shape="circle" coords="95,478,19" href="valgtlanse.html" name="lanse21">
+            <area shape="circle" coords="79,409,19" href="valgtlanse.html" name="lanse22">
+            <area shape="circle" coords="22,380,19" href="valgtlanse.html" name="lanse23">
+            <area shape="circle" coords="32,341,19" href="valgtlanse.html" name="lanse24">
+            <area shape="circle" coords="37,286,19" href="valgtlanse.html" name="lanse25">
+            <area shape="circle" coords="61,219,19" href="valgtlanse.html" name="lanse26">
+            <area shape="circle" coords="73,153,19" href="valgtlanse.html" name="lanse27">
+
+        </map>
+    </p>
+
+{% endblock %}
