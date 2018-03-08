@@ -41,14 +41,15 @@ def CheckReLogin(cntrl,nameEL,pwordEL):# Used to check if username and password 
 def lancetype(Type, cntrl):#Used to change value of global variable, and change GUI window
     global lanceType
     lanceType=Type
-    print(lanceType)# Used to check if value of lanceType is changed
+    print('har oppdatert type til: ' + str(lanceType))
+    #print(lanceType)# Used to check if value of lanceType is changed
     cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
     return lanceType
 
 def Place(place, cntrl):#Used to change value of global variable, and change GUI window
     global placement
     placement=place
-    print(placement)
+    print('lansen er plassert: '+ str(placement))
     cntrl.show_frame(Home)# Changes GUI window to Home
     return placement
 
