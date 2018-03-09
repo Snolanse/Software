@@ -16,39 +16,44 @@
 
 {% block body %}
 
-    <p>
-        <img src={% static "startside/granaasen.PNG" %} width="312" height="872" usemap="#Map" />
-        <map name="Map">
+    <form action="/valgtlanse" method="post" name="lansevelger">
+        {% csrf_token %}
+        <input type="hidden" name="test" value="feil" id="lansevelger_verdi"><br>
 
-            <area shape="circle" coords="200,70,19" id="lanse1" onclick="faadata(id)">
-            <area shape="circle" coords="194,107,19" href="valgtlanse" id="lanse2">
-            <area shape="circle" coords="180,166,19" href="valgtlanse" id="lanse3">
-            <area shape="circle" coords="164,225,19" href="valgtlanse" id="lanse4">
-            <area shape="circle" coords="175,374,19" href="valgtlanse" id="lanse5">
-            <area shape="circle" coords="195,420,19" href="valgtlanse" id="lanse6">
-            <area shape="circle" coords="187,492,19" href="valgtlanse" id="lanse7">
-            <area shape="circle" coords="177,567,19" href="valgtlanse" id="lanse8">
-            <area shape="circle" coords="138,125,19" href="valgtlanse" id="lanse9">
-            <area shape="circle" coords="143,183,19" href="valgtlanse" id="lanse10">
-            <area shape="circle" coords="123,253,19" href="valgtlanse" id="lanse11">
-            <area shape="circle" coords="111,328,19" href="valgtlanse" id="lanse12">
-            <area shape="circle" coords="110,385,19" href="valgtlanse" id="lanse13">
-            <area shape="circle" coords="121,425,19" href="valgtlanse" id="lanse14">
-            <area shape="circle" coords="114,527,19" href="valgtlanse" id="lanse15">
-            <area shape="circle" coords="127,627,19" href="valgtlanse" id="lanse16">
-            <area shape="circle" coords="124,691,19" href="valgtlanse" id="lanse17">
-            <area shape="circle" coords="102,760,19" href="valgtlanse" id="lanse18">
-            <area shape="circle" coords="87,806,19" href="valgtlanse" id="lanse19">
-            <area shape="circle" coords="104,554,19" href="valgtlanse" id="lanse20">
-            <area shape="circle" coords="95,478,19" href="valgtlanse" id="lanse21">
-            <area shape="circle" coords="79,409,19" href="valgtlanse" id="lanse22">
-            <area shape="circle" coords="22,380,19" href="valgtlanse" id="lanse23">
-            <area shape="circle" coords="32,341,19" href="valgtlanse" id="lanse24">
-            <area shape="circle" coords="37,286,19" href="valgtlanse" id="lanse25">
-            <area shape="circle" coords="61,219,19" href="valgtlanse" id="lanse26">
-            <area shape="circle" coords="73,153,19" href="valgtlanse" id="lanse27">
+        <p>
+            <img src={% static "startside/granaasen.PNG" %} width="312" height="872" usemap="#Map" />
+            <map name="Map">
 
-        </map>
-    </p>
 
+                <area shape="circle" coords="200,70,19" id="lanse1" onclick="min_funksjon(id)">
+                <area shape="circle" coords="194,107,19"  id="lanse2" onclick="min_funksjon(id)">
+                <area shape="circle" coords="180,166,19"  id="lanse3" onclick="min_funksjon(id)">
+                <area shape="circle" coords="164,225,19"  id="lanse4" onclick="min_funksjon(id)">
+                <area shape="circle" coords="175,374,19"  id="lanse5" onclick="min_funksjon(id)">
+                <area shape="circle" coords="195,420,19"  id="lanse6" onclick="min_funksjon(id)">
+                <area shape="circle" coords="187,492,19"  id="lanse7" onclick="min_funksjon(id)">
+                <area shape="circle" coords="177,567,19"  id="lanse8" onclick="min_funksjon(id)"> 
+                <area shape="circle" coords="138,125,19"  id="lanse9" onclick="min_funksjon(id)">
+                <area shape="circle" coords="143,183,19"  id="lanse10" onclick="min_funksjon(id)">
+                <area shape="circle" coords="123,253,19"  id="lanse11" onclick="min_funksjon(id)">
+                <area shape="circle" coords="111,328,19"  id="lanse12" onclick="min_funksjon(id)">
+                <area shape="circle" coords="110,385,19"  id="lanse13" onclick="min_funksjon(id)">
+                <area shape="circle" coords="121,425,19"  id="lanse14" onclick="min_funksjon(id)">
+                <area shape="circle" coords="114,527,19"  id="lanse15" onclick="min_funksjon(id)">
+                <area shape="circle" coords="127,627,19"  id="lanse16" onclick="min_funksjon(id)">
+                <area shape="circle" coords="124,691,19"  id="lanse17" onclick="min_funksjon(id)">
+                <area shape="circle" coords="102,760,19"  id="lanse18" onclick="min_funksjon(id)">
+                <area shape="circle" coords="87,806,19"  id="lanse19" onclick="min_funksjon(id)">
+                <area shape="circle" coords="104,554,19"  id="lanse20" onclick="min_funksjon(id)">
+                <area shape="circle" coords="95,478,19"  id="lanse21" onclick="min_funksjon(id)">
+                <area shape="circle" coords="79,409,19"  id="lanse22" onclick="min_funksjon(id)">
+                <area shape="circle" coords="22,380,19"  id="lanse23" onclick="min_funksjon(id)">
+                <area shape="circle" coords="32,341,19"  id="lanse24" onclick="min_funksjon(id)">
+                <area shape="circle" coords="37,286,19"  id="lanse25" onclick="min_funksjon(id)">
+                <area shape="circle" coords="61,219,19"  id="lanse26" onclick="min_funksjon(id)">
+                <area shape="circle" coords="73,153,19"  id="lanse27" onclick="min_funksjon(id)">
+
+            </map>
+        </p>
+    </form>
 {% endblock %}
