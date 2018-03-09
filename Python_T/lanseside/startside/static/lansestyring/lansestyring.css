@@ -1,0 +1,17 @@
+
+#infoomlanse {
+    width: auto;
+    margin-top: 10px;
+    border-bottom: 5px groove;
+    border-top: 5px groove;
+}
+
+#infoomlanse input {
+    border: hidden;
+}
+
+    #infoomlanse ul li {
+        margin-top: auto;
+        list-style-type: none;
+        padding: 5px;
+    }
