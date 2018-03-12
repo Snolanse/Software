@@ -47,6 +47,7 @@ def lanseType(Type, cntrl):#Used to change value of global variable, and change 
 def Place(place, cntrl):#Used to change value of global variable, and change GUI window
     global placement
     placement=place
+    cntrl.frames[Home].lanse_plassering.set("Plassering: " + str(placement))
     print('lansen er plassert: '+ str(placement))
     cntrl.show_frame(Home)# Changes GUI window to Home
     return placement
@@ -287,9 +288,13 @@ class Home(tk.Frame):# Main page
 
         self.lanse_Type = tk.StringVar()
         self.lanse_Type.set('Ikke definert')
+        self.lanse_plassering = tk.StringVar()
+        self.lanse_plassering.set('Ikke definert')
 
         label = tk.Label(self, textvariable=self.lanse_Type, font=LARGE_FONT)
-        label.grid(row=0,column=0)
+        label.grid(row=0,column=0, sticky="W")
+        labe2 = tk.Label(self, textvariable=self.lanse_plassering, font=LARGE_FONT)
+        labe2.grid(row=1, column=0)
 
 
 #"Main loop"------------------------------------------------------------------------------------------------------------
