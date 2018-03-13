@@ -19,7 +19,6 @@ def CheckLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is
 
     if ((nameEL.get() == "admin" and pwordEL.get() == "admin") or
             (nameEL.get() == uname and pwordEL.get() == pword)):  # Checks to see if you entered the correct data.
-
         cntrl.show_frame(SnTypePage)
     else:
         cntrl.show_frame(LoginF)
@@ -42,15 +41,12 @@ def lanseType(Type, cntrl):#Used to change value of global variable, and change 
 
     cntrl.frames[Home].lanse_Type.set("Type: " + str(lanse_type))
     cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
-    return lanse_type
 
 def Place(place, cntrl):#Used to change value of global variable, and change GUI window
     global placement
-    placement=place
+    placement = place
     cntrl.frames[Home].lanse_plassering.set("Plassering: " + str(placement))
-    print('lansen er plassert: '+ str(placement))
     cntrl.show_frame(Home)# Changes GUI window to Home
-    return placement
 
 def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be added.
     with open(creds, 'w') as f:  # Creates a document using the variable we made at the top.
