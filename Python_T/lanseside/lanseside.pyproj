@@ -29,6 +29,7 @@
     <Compile Include="startside\migrations\__init__.py" />
     <Compile Include="startside\models.py" />
     <Compile Include="startside\tests.py" />
+    <Compile Include="startside\urls.py" />
     <Compile Include="startside\views.py" />
     <Compile Include="startside\__init__.py" />
   </ItemGroup>
@@ -36,15 +37,28 @@
     <Folder Include="lanseside" />
     <Folder Include="startside\" />
     <Folder Include="startside\migrations\" />
+    <Folder Include="C:\Users\marius\Documents\Bachelor\Software\Python_T\lanseside\startside\static\lansestyring\" />
     <Folder Include="startside\static\startside\" />
     <Folder Include="startside\templates\" />
     <Folder Include="startside\static\" />
+    <Folder Include="C:\Users\marius\Documents\Bachelor\Software\Python_T\lanseside\startside\templates\lansestyring\" />
     <Folder Include="startside\templates\startside\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db.sqlite3" />
     <Content Include="startside\static\base.css" />
     <Content Include="startside\static\base.js" />
+    <Content Include="startside\static\lansestyring\lansestyring.js" />
+    <Content Include="startside\static\lansestyring\lansestyring.css" />
+    <Content Include="startside\static\startside\granaasen.PNG" />
+    <Content Include="startside\static\startside\lanser.css" />
+    <Content Include="startside\static\startside\lanser.js" />
+    <Content Include="startside\static\startside\startside.css" />
+    <Content Include="startside\static\startside\startside.js" />
     <Content Include="startside\templates\base.html" />
+    <Content Include="startside\templates\lansestyring\lansestyring.html" />
+    <Content Include="startside\templates\startside\lanser.html" />
+    <Content Include="startside\templates\startside\startside.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
