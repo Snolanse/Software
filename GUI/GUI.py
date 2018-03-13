@@ -11,7 +11,8 @@ LARGE_FONT = ("Verdana", 12)# Used to store font type
 
 #Functions -------------------------------------------------------------------------------------------------------------
 
-def CheckLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is correct.
+
+def CheckLogin(cntrl,nameEL,pwordEL):  # Used to check if username and password is correct.
     with open(creds) as f:
         data = f.readlines()  # This takes the entire document we put the info into and puts it into the data variable
         uname = data[0].rstrip()  # Data[0], 0 is the first line, 1 is the second and so on.
@@ -24,7 +25,8 @@ def CheckLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is
     else:
         cntrl.show_frame(LoginF)
 
-def CheckReLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is correct.
+
+def CheckReLogin(cntrl,nameEL,pwordEL):  # Used to check if username and password is correct.
     with open(creds) as f:
         data = f.readlines()  # This takes the entire document we put the info into and puts it into the data variable
         uname = data[0].rstrip()  # Data[0], 0 is the first line, 1 is the second and so on.
@@ -36,15 +38,17 @@ def CheckReLogin(cntrl,nameEL,pwordEL):# Used to check if username and password 
     else:
         cntrl.show_frame(LoginF)
 
-def lanseType(Type, cntrl):#Used to change value of global variable, and change GUI window
+
+def lanseType(Type, cntrl):  #Used to change value of global variable, and change GUI window
     global lanse_type
     lanse_type = Type
 
     cntrl.frames[Home].lanse_Type.set("Type: " + str(lanse_type))
-    cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
+    cntrl.show_frame(PlacementPage)  # Changes GUI window to PlacementPage
     return lanse_type
 
-def Place(place, cntrl):#Used to change value of global variable, and change GUI window
+
+def Place(place, cntrl):  #Used to change value of global variable, and change GUI window
     global placement
     placement=place
     cntrl.frames[Home].lanse_plassering.set("Plassering: " + str(placement))
@@ -52,7 +56,8 @@ def Place(place, cntrl):#Used to change value of global variable, and change GUI
     cntrl.show_frame(Home)# Changes GUI window to Home
     return placement
 
-def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be added.
+
+def FSSignup(cntrl):  # Used to add a user to the GUI. So far only one user can be added.
     with open(creds, 'w') as f:  # Creates a document using the variable we made at the top.
         f.write(
             nameE.get())           #nameE is the variable we were storing the input to.
@@ -64,21 +69,21 @@ def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be
 
 
 #Classes----------------------------------------------------------------------------------------------------------------
-class AppGui(tk.Tk):# Main GUI class
+class AppGui(tk.Tk):  # Main GUI class
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        tk.Tk.iconbitmap(self, default="standard_trondheim.ico") # Sets GUI icon
-        tk.Tk.wm_title(self, "Snøstyring")# Sets GUI title
+        tk.Tk.iconbitmap(self, default="standard_trondheim.ico")  # Sets GUI icon
+        tk.Tk.wm_title(self, "Snøstyring")  # Sets GUI title
 
         container = tk.Frame(self)
-        container.pack(side="top", fill="both", expand=True)# Define window
+        container.pack(side="top", fill="both", expand=True)  # Define window
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
 
-        for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, Home):# Includes all pages
+        for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, Home):  # Includes all pages
 
             frame = F(container, self)
             self.frames[F] = frame
@@ -92,7 +97,7 @@ class AppGui(tk.Tk):# Main GUI class
 
 
 
-class Login(tk.Frame):# Login page
+class Login(tk.Frame):  # Login page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -114,7 +119,8 @@ class Login(tk.Frame):# Login page
                               command=lambda: CheckLogin(controller,nameEL,pwordEL))
         loginB.grid(columnspan=2, sticky="E")
 
-class ReLogin(tk.Frame):# Login page
+
+class ReLogin(tk.Frame):  # Login page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -136,7 +142,8 @@ class ReLogin(tk.Frame):# Login page
                               command=lambda: CheckReLogin(controller,nameEL,pwordEL))
         loginB.grid(columnspan=2, sticky="E")
 
-class LoginF(tk.Frame): # Login failed page
+
+class LoginF(tk.Frame):  # Login failed page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -158,7 +165,8 @@ class LoginF(tk.Frame): # Login failed page
                               command=lambda: CheckLogin(controller,nameEL,pwordEL))
         loginB.grid(columnspan=2, sticky="E")
 
-class SnTypePage(tk.Frame): # Snowgun type page
+
+class SnTypePage(tk.Frame):  # Snowgun type page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -180,11 +188,11 @@ class SnTypePage(tk.Frame): # Snowgun type page
 
 
 
-class Signup(tk.Frame): # Signup page
+class Signup(tk.Frame):  # Signup page
 
     def __init__(self, parent, controller):
-        global nameE
-        global pwordE
+        # global nameE
+        # global pwordE
 
         tk.Frame.__init__(self, parent)
 
@@ -194,19 +202,24 @@ class Signup(tk.Frame): # Signup page
 
         nameL = tk.Label(self, text='Brukernavn: ')
         pwordL = tk.Label(self, text='Passord: ')
+        confirm_pwordL = tk.Label(self, text='Verifiser passord: ')
         nameL.grid(row=1, sticky="W")
         pwordL.grid(row=2, sticky="W")
+        confirm_pwordL.grid(row=3, sticky="W")
 
         nameE = tk.Entry(self)
-        pwordE = tk.Entry(self, show='*')
+        pwordE = tk.Entry(self)
+        confirm_pwordE = tk.Entry(self)
         nameE.grid(row=1, column=1)
         pwordE.grid(row=2, column=1)
+        confirm_pwordE.grid(row=3, column=1)
 
         signupButton = tk.Button(self, text='Registrer',
                            command=lambda: FSSignup(controller))
         signupButton.grid(columnspan=2, sticky="E")
 
-class PlacementPage(tk.Frame):# This has to be cleaned up
+
+class PlacementPage(tk.Frame):  # This has to be cleaned up
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -219,7 +232,8 @@ class PlacementPage(tk.Frame):# This has to be cleaned up
         h=4
         w=8
 
-        button1 = tk.Button(toolbar, text="9",
+        button1 = tk.Button(toolbar,
+                            text="9",
                             command=lambda: Place(9, controller),height = h, width = w)
         button1.grid(row=1,column = 1)
 
@@ -272,10 +286,12 @@ class PlacementPage(tk.Frame):# This has to be cleaned up
                             command=lambda: Place(23, controller),height = h, width = w)
         button15.grid(row=3,column=5)
 
-        button16 = tk.Button(toolbar, text="24",
-                            command=lambda: Place(24, controller),height = h, width = w)
+        button16 = tk.Button(toolbar,
+                             text="24",
+                             command=lambda: Place(24, controller),height = h, width = w)
         button16.grid(row=4,column=1)
-        button17 = tk.Button(toolbar, text="25",
+        button17 = tk.Button(toolbar,
+                             text="25",
                             command=lambda: Place(25, controller),height = h, width = w)
         button17.grid(row=4,column=2)
 
