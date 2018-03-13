@@ -1,6 +1,6 @@
 #Imports----------------------------------------------------------------------------------------------------------------
 import tkinter as tk
-import os
+from tkinter import LEFT, TOP, X, FLAT, RAISED
 
 #Global variables-------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be
         f.write('\n')  # Splits the line so both variables are on different lines.
         f.write(pwordE.get())  # Same as nameE just with pword var
         f.close()  # Closes the file
-    cntrl.show_frame(Login)
+    cntrl.show_frame(Home)
 
 
 #Classes----------------------------------------------------------------------------------------------------------------
@@ -159,27 +159,29 @@ class LoginF(tk.Frame): # Login failed page
         loginB.grid(columnspan=2, sticky="E")
 
 class SnTypePage(tk.Frame): # Snowgun type page
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Lanse type", font=LARGE_FONT)
+        label = tk.Label(self, text="Hvilken type lanse er dette?", font=LARGE_FONT)
         label.grid(sticky="N")
 
         button0 = tk.Button(self, text="Ikke regulerbar",
-                            command=lambda: lanseType(0, controller))
+                            command=lambda: lanseType("Ikke regulerbar", controller))
         button0.grid(row=1, sticky="W")
 
         button1 = tk.Button(self, text="2-trinn",
-                                command=lambda: lanseType(2, controller))
+                                command=lambda: lanseType("2-trinn", controller))
         button1.grid(row=2, sticky="W")
 
         button2 = tk.Button(self, text="3-trinn",
-                                command=lambda: lanseType(3, controller))
+                                command=lambda: lanseType("3-trinn", controller))
         button2.grid(row=3,sticky="W")
 
 
 
 class Signup(tk.Frame): # Signup page
+
     def __init__(self, parent, controller):
         global nameE
         global pwordE
@@ -205,86 +207,103 @@ class Signup(tk.Frame): # Signup page
         signupButton.grid(columnspan=2, sticky="E")
 
 class PlacementPage(tk.Frame):# This has to be cleaned up
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+
+        toolbar = tk.Frame(self, bg="grey")
+
         label = tk.Label(self, text="Hvor er lansa plassert?", font=LARGE_FONT)
-        label.grid()
+        label.pack(side=TOP)
 
         h=4
         w=8
 
-        button1 = tk.Button(self, text="9",
+        button1 = tk.Button(toolbar, text="9",
                             command=lambda: Place(9, controller),height = h, width = w)
         button1.grid(row=1,column = 1)
 
-        button2 = tk.Button(self, text="10",
+        button2 = tk.Button(toolbar, text="10",
                             command=lambda: Place(10, controller),height = h, width = w)
         button2.grid(row=1,column=2)
-        button3 = tk.Button(self, text="11",
+        button3 = tk.Button(toolbar, text="11",
                             command=lambda: Place(11, controller),height = h, width = w)
         button3.grid(row=1,column=3)
 
-        button4 = tk.Button(self, text="12",
+        button4 = tk.Button(toolbar, text="12",
                             command=lambda: Place(12, controller),height = h, width = w)
         button4.grid(row=1,column=4)
-        button5 = tk.Button(self, text="13",
+        button5 = tk.Button(toolbar, text="13",
                             command=lambda: Place(13, controller),height = h, width = w)
         button5.grid(row=1,column=5)
 
-        button6 = tk.Button(self, text="14",
+        button6 = tk.Button(toolbar, text="14",
                             command=lambda: Place(14, controller),height = h, width = w)
         button6.grid(row=2,column=1)
-        button7 = tk.Button(self, text="15",
+        button7 = tk.Button(toolbar, text="15",
                             command=lambda: Place(15, controller),height = h, width = w)
         button7.grid(row=2,column=2)
 
-        button8 = tk.Button(self, text="16",
+        button8 = tk.Button(toolbar, text="16",
                             command=lambda: Place(16, controller),height = h, width = w)
         button8.grid(row=2,column=3)
-        button9 = tk.Button(self, text="17",
+        button9 = tk.Button(toolbar, text="17",
                             command=lambda: Place(17, controller),height = h, width = w)
         button9.grid(row=2,column=4)
 
-        button10 = tk.Button(self, text="18",
+        button10 = tk.Button(toolbar, text="18",
                             command=lambda: Place(18, controller),height = h, width = w)
         button10.grid(row=2,column=5)
-        button11 = tk.Button(self, text="19",
+        button11 = tk.Button(toolbar, text="19",
                             command=lambda: Place(19, controller),height = h, width = w)
         button11.grid(row=3,column=1)
 
-        button12 = tk.Button(self, text="20",
+        button12 = tk.Button(toolbar, text="20",
                             command=lambda: Place(20, controller),height = h, width = w)
         button12.grid(row=3,column=2)
-        button13 = tk.Button(self, text="21",
+        button13 = tk.Button(toolbar, text="21",
                             command=lambda: Place(21, controller),height = h, width = w)
         button13.grid(row=3,column=3)
 
-        button14 = tk.Button(self, text="22",
+        button14 = tk.Button(toolbar, text="22",
                             command=lambda: Place(22, controller),height = h, width = w)
         button14.grid(row=3,column=4)
-        button15 = tk.Button(self, text="23",
+        button15 = tk.Button(toolbar, text="23",
                             command=lambda: Place(23, controller),height = h, width = w)
         button15.grid(row=3,column=5)
 
-        button16 = tk.Button(self, text="24",
+        button16 = tk.Button(toolbar, text="24",
                             command=lambda: Place(24, controller),height = h, width = w)
         button16.grid(row=4,column=1)
-        button17 = tk.Button(self, text="25",
+        button17 = tk.Button(toolbar, text="25",
                             command=lambda: Place(25, controller),height = h, width = w)
         button17.grid(row=4,column=2)
 
-        button18 = tk.Button(self, text="26",
+        button18 = tk.Button(toolbar, text="26",
                             command=lambda: Place(26, controller),height = h, width = w)
         button18.grid(row=4,column=3)
 
-        button19 = tk.Button(self, text="27",
+        button19 = tk.Button(toolbar, text="27",
                              command=lambda: Place(27, controller),height = h, width = w)
         button19.grid(row=4,column=4)
 
+        toolbar.pack(side=LEFT)
 
 class Home(tk.Frame):# Main page
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+        toolbar = tk.Frame(self, bg="grey")
+        signupButton = tk.Button(toolbar, text="Registrer", command=lambda: controller.show_frame(Signup))
+        signupButton.pack(side=LEFT, padx=2, pady=2)
+        logoutButton = tk.Button(toolbar, text="Logg ut", command=lambda: controller.show_frame(ReLogin))
+        logoutButton.pack(side=LEFT, padx=2, pady=2)
+        placementButton = tk.Button(toolbar, text="Lanseplassering", command=lambda: controller.show_frame(PlacementPage))
+        placementButton.pack(side=LEFT, padx=2, pady=2)
+        lanseButton = tk.Button(toolbar, text="Lansetype", command=lambda: controller.show_frame(SnTypePage))
+        lanseButton.pack(side=LEFT, padx=2, pady=2)
+
+        toolbar.pack(side=TOP, fill=X)
 
         self.lanse_Type = tk.StringVar()
         self.lanse_Type.set('Ikke definert')
@@ -292,11 +311,9 @@ class Home(tk.Frame):# Main page
         self.lanse_plassering.set('Ikke definert')
 
         label = tk.Label(self, textvariable=self.lanse_Type, font=LARGE_FONT)
-        label.grid(row=0,column=0, sticky="W")
+        label.pack(side=LEFT)
         labe2 = tk.Label(self, textvariable=self.lanse_plassering, font=LARGE_FONT)
-        labe2.grid(row=1, column=0)
-
-
+        labe2.pack(side=LEFT)
 #"Main loop"------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
 
