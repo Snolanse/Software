@@ -33,14 +33,19 @@ def CheckReLogin(cntrl,nameEL,pwordEL):# Used to check if username and password 
             (nameEL.get() == uname and pwordEL.get() == pword)):  # Checks to see if you entered the correct data.
         cntrl.show_frame(Home)
     else:
-        cntrl.show_frame(LoginF)
+        cntrl.show_frame(LoginF2)
 
-def lanseType(Type, cntrl):#Used to change value of global variable, and change GUI window
+
+def lanseType(Type, jump, cntrl):#Used to change value of global variable, and change GUI window
     global lanse_type
     lanse_type = Type
 
     cntrl.frames[Home].lanse_Type.set("Type: " + str(lanse_type))
-    cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
+
+    if jump == 1:
+        cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
+    else:
+        cntrl.show_frame(Home)
 
 def Place(place, cntrl):#Used to change value of global variable, and change GUI window
     global placement
@@ -74,7 +79,7 @@ class AppGui(tk.Tk):# Main GUI class
 
         self.frames = {}
 
-        for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, Home):# Includes all pages
+        for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, Home, ReLogin, SnTypePage2, LoginF2):# Includes all pages
 
             frame = F(container, self)
             self.frames[F] = frame
@@ -163,18 +168,59 @@ class SnTypePage(tk.Frame): # Snowgun type page
         label.grid(sticky="N")
 
         button0 = tk.Button(self, text="Ikke regulerbar",
-                            command=lambda: lanseType("Ikke regulerbar", controller))
+                            command=lambda: lanseType("Ikke regulerbar", 1, controller))
         button0.grid(row=1, sticky="W")
 
         button1 = tk.Button(self, text="2-trinn",
-                                command=lambda: lanseType("2-trinn", controller))
+                                command=lambda: lanseType("2-trinn", 1, controller))
         button1.grid(row=2, sticky="W")
 
         button2 = tk.Button(self, text="3-trinn",
-                                command=lambda: lanseType("3-trinn", controller))
+                                command=lambda: lanseType("3-trinn", 1, controller))
         button2.grid(row=3,sticky="W")
 
 
+class SnTypePage2(tk.Frame): # Snowgun type page
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Hvilken type lanse er dette?", font=LARGE_FONT)
+        label.grid(sticky="N")
+
+        button0 = tk.Button(self, text="Ikke regulerbar",
+                            command=lambda: lanseType("Ikke regulerbar", 0, controller))
+        button0.grid(row=1, sticky="W")
+
+        button1 = tk.Button(self, text="2-trinn",
+                                command=lambda: lanseType("2-trinn", 0, controller))
+        button1.grid(row=2, sticky="W")
+
+        button2 = tk.Button(self, text="3-trinn",
+                                command=lambda: lanseType("3-trinn", 0, controller))
+        button2.grid(row=3,sticky="W")
+
+class LoginF2(tk.Frame): # Login failed page
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        intruction = tk.Label(self, text='Brukernavn eller passord var feil.\n Skriv på nytt\n')
+        intruction.grid(sticky="E")  # Blahdy Blah
+
+        nameL = tk.Label(self, text='Brukernavn: ')
+        pwordL = tk.Label(self, text='Passord: ')
+        nameL.grid(row=1, sticky="W")
+        pwordL.grid(row=2, sticky="W")
+
+        nameEL = tk.Entry(self)
+        pwordEL = tk.Entry(self, show='*')
+        nameEL.grid(row=1, column=1)
+        pwordEL.grid(row=2, column=1)
+
+        loginB = tk.Button(self, text='Logg inn',
+                              command=lambda: CheckReLogin(controller,nameEL,pwordEL))
+        loginB.grid(columnspan=2, sticky="E")
 
 class Signup(tk.Frame): # Signup page
 
@@ -285,19 +331,23 @@ class PlacementPage(tk.Frame):# This has to be cleaned up
 
         toolbar.pack(side=LEFT)
 
+
 class Home(tk.Frame):# Main page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+
         toolbar = tk.Frame(self, bg="grey")
+
+        lanseButton = tk.Button(toolbar, text="Lansetype", command=lambda: controller.show_frame(SnTypePage2))
+        lanseButton.pack(side=LEFT, padx=2, pady=2)
+        placementButton = tk.Button(toolbar, text="Lanseplassering",
+                                    command=lambda: controller.show_frame(PlacementPage))
+        placementButton.pack(side=LEFT, padx=2, pady=2)
         signupButton = tk.Button(toolbar, text="Registrer", command=lambda: controller.show_frame(Signup))
         signupButton.pack(side=LEFT, padx=2, pady=2)
         logoutButton = tk.Button(toolbar, text="Logg ut", command=lambda: controller.show_frame(ReLogin))
         logoutButton.pack(side=LEFT, padx=2, pady=2)
-        placementButton = tk.Button(toolbar, text="Lanseplassering", command=lambda: controller.show_frame(PlacementPage))
-        placementButton.pack(side=LEFT, padx=2, pady=2)
-        lanseButton = tk.Button(toolbar, text="Lansetype", command=lambda: controller.show_frame(SnTypePage))
-        lanseButton.pack(side=LEFT, padx=2, pady=2)
 
         toolbar.pack(side=TOP, fill=X)
 
