@@ -5,30 +5,49 @@ var stegvalgknapper = "";
 var testnummer;
 var valgtsteg;
 var steg;
+var node = "";
+var nodelabel = "";
+var nodespan = "";
 
 function leggtilknapper() {
 
     antknapper = document.getElementById("ant_steg").value;
 
     for (kslett = 0; kslett < stegvalgknapper.value; kslett++) {
+
         document.getElementById(kslett).remove();
+        document.getElementById("mark" + kslett).remove();
+
     }
 
     for (iknapper = 0; iknapper < antknapper; iknapper++) {
 
-        var node = document.createElement("LI");
-        node.setAttribute("id", iknapper);
+        node = document.createElement("LI");
+        node.setAttribute("id", "mark" + iknapper);
+        node.setAttribute("name", "mark");
 
         stegvalgknapper = document.createElement("INPUT");
         stegvalgknapper.setAttribute("type", "radio");
         stegvalgknapper.setAttribute("name", "radiogruppe");
+        stegvalgknapper.setAttribute("class", "radiogruppene");
         stegvalgknapper.setAttribute("value", iknapper + 1);
         stegvalgknapper.setAttribute("id", iknapper);
 
-        document.getElementById("tekstfelt").appendChild(stegvalgknapper);
+        nodelabel = document.createElement("LABEL");
+        nodelabel.setAttribute("id", "container" + iknapper);
+        nodelabel.setAttribute("class", "container");
 
-        node.appendChild(stegvalgknapper);
+        nodespan = document.createElement("SPAN");
+        nodespan.setAttribute("id", "checkmark" + iknapper);
+        nodespan.setAttribute("class", "checkmark");
+
         document.getElementById("tekstfelt").appendChild(node);
+        document.getElementById("mark" + iknapper).appendChild(nodelabel);
+        document.getElementById("container" + iknapper).appendChild(stegvalgknapper);
+        document.getElementById("container" + iknapper).appendChild(nodespan);
+
+        document.getElementById("container" + iknapper).innerHTML += "Steg nr. " + stegvalgknapper.value;
+
     }
 }
 
@@ -41,4 +60,9 @@ function oppdatervalgtsteg() {
         }
     }
     document.getElementById("demo").innerHTML = "valgt steg: " + valgtsteg;
+}
+function minfunksjon() {
+
+    document.getElementById("2").checked = true;
+
 }

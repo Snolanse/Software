@@ -23,6 +23,11 @@ body {
     float: left;
 }
 
+    #toppmeny a.active {
+        background-color: #242424;
+        color: white;
+    }
+
     #toppmeny ul {
         text-align: left;
         list-style-type: none;
@@ -49,3 +54,4 @@ body {
     #toppmeny ul li:hover {
         text-decoration: underline;
     }
+ 
