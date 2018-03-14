@@ -78,7 +78,7 @@ function last_lanse(id) {
         var content = $(data);
         $("#lanseplass").empty().append(content);
         console.log('siden har blitt lastet inn')
-        setTimeout(leggtilknapper(), 0);
+        setTimeout(leggtilknapper(), 200);
         console.log('kjorer med 0.2 delay')
     })
 }
