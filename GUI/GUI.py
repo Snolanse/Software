@@ -360,6 +360,7 @@ class Home(tk.Frame):# Main page
         label.pack(side=LEFT)
         labe2 = tk.Label(self, textvariable=self.lanse_plassering, font=LARGE_FONT)
         labe2.pack(side=LEFT)
+
 #"Main loop"------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
 
