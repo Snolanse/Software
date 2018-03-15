@@ -5,6 +5,5 @@
 setTimeout(pressknapp, 20);
 
 function pressknapp() {
-    l = document.getElementById("tittel").innerHTML;
-    document.getElementById(l).setAttribute("class", 'active');
+    document.getElementById(document.getElementById("tittel").innerHTML).setAttribute("class", 'active');
 }
