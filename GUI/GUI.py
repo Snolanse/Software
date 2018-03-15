@@ -7,11 +7,14 @@ from tkinter import LEFT, TOP, X, FLAT, RAISED
 lanse_type = None
 placement = None
 creds = 'tempfile.temp' # Variable that becomes login data document
+lanse_info = "lanse.temp"  # Lagret lansetype
+plass_info = "plass.temp"  # Lagret plassering
 LARGE_FONT = ("Verdana", 12)# Used to store font type
 
 #Functions -------------------------------------------------------------------------------------------------------------
 
-def CheckLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is correct.
+
+def CheckLogin(cntrl,nameEL,pwordEL):  # Used to check if username and password is correct.
     with open(creds) as f:
         data = f.readlines()  # This takes the entire document we put the info into and puts it into the data variable
         uname = data[0].rstrip()  # Data[0], 0 is the first line, 1 is the second and so on.
@@ -21,65 +24,101 @@ def CheckLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is
             (nameEL.get() == uname and pwordEL.get() == pword)):  # Checks to see if you entered the correct data.
         cntrl.show_frame(SnTypePage)
     else:
-        cntrl.show_frame(LoginF)
+        cntrl.frames[Login].signuptext.set("Feil brukernavn/passord")
 
-def CheckReLogin(cntrl,nameEL,pwordEL):# Used to check if username and password is correct.
+
+def CheckReLogin(cntrl):  # Used to check if username and password is correct.
+    nameEL = cntrl.frames[ReLogin].nameEL.get()
+    pwordEL = cntrl.frames[ReLogin].pwordEL.get()
+
     with open(creds) as f:
         data = f.readlines()  # This takes the entire document we put the info into and puts it into the data variable
         uname = data[0].rstrip()  # Data[0], 0 is the first line, 1 is the second and so on.
         pword = data[1].rstrip()  # Using .rstrip() will remove the \n (new line) word from before when we input it
 
-    if ((nameEL.get() == "admin" and pwordEL.get() == "admin") or
-            (nameEL.get() == uname and pwordEL.get() == pword)):  # Checks to see if you entered the correct data.
+    if (((nameEL == "admin" and pwordEL) == "admin") or
+        (nameEL == uname and pwordEL == pword)):  # Checks to see if you entered the correct data.
         cntrl.show_frame(Home)
+        cntrl.frames[ReLogin].clear_text()  # Tømmer inntastingsfelt
+        cntrl.frames[ReLogin].signuptext.set("")  # For å resette feilmeldingsteksten
     else:
-        cntrl.show_frame(LoginF2)
+        cntrl.frames[ReLogin].signuptext.set("Feil brukernavn/passord")
 
 
 def lanseType(Type, jump, cntrl):#Used to change value of global variable, and change GUI window
     global lanse_type
     lanse_type = Type
 
-    cntrl.frames[Home].lanse_Type.set("Type: " + str(lanse_type))
+    with open(lanse_info, "w") as f:  # lagrer info til fil
+        f.write(lanse_type)
+        f.close()
 
+    cntrl.frames[Home].lanse_Type.set("Type: " + str(lanse_type))
     if jump == 1:
         cntrl.show_frame(PlacementPage)# Changes GUI window to PlacementPage
     else:
         cntrl.show_frame(Home)
 
-def Place(place, cntrl):#Used to change value of global variable, and change GUI window
+
+def Place(place, cntrl):  #Used to change value of global variable, and change GUI window
     global placement
     placement = place
+
+    with open(plass_info, "w") as f:  # lagrer info til fil
+        f.write(str(placement))
+        f.close()
+
     cntrl.frames[Home].lanse_plassering.set("Plassering: " + str(placement))
     cntrl.show_frame(Home)# Changes GUI window to Home
 
-def FSSignup(cntrl):# Used to add a user to the GUI. So far only one user can be added.
-    with open(creds, 'w') as f:  # Creates a document using the variable we made at the top.
-        f.write(
-            nameE.get())           #nameE is the variable we were storing the input to.
-                                   #Tkinter makes us use .get() to get the actual string.
-        f.write('\n')  # Splits the line so both variables are on different lines.
-        f.write(pwordE.get())  # Same as nameE just with pword var
-        f.close()  # Closes the file
-    cntrl.show_frame(Home)
+
+def FSSignup(cntrl, jump):  # Used to add a user to the GUI. So far only one user can be added.
+    nameE = cntrl.frames[Signup].nameE.get()
+    pwordE = cntrl.frames[Signup].pwordE.get()
+    confirm_pwordE = cntrl.frames[Signup].confirm_pwordE.get()
+
+    if jump == 1:
+        cntrl.frames[Signup].clear_text()  # Tømmer inntastingsfelt
+        cntrl.show_frame(Home)
+    else:
+        if (nameE == "") or (pwordE == "") or (confirm_pwordE == ""):
+            print("Tomme felter")
+            cntrl.frames[Signup].signuptext.set("Ingen felt kan stå tomme")
+        elif (pwordE != confirm_pwordE):
+            print("Ulike passordfelt")
+            cntrl.frames[Signup].signuptext.set("Ulike passordfelt")
+        else:
+            with open(creds, 'w') as f:  # Creates a document using the variable we made at the top.
+                f.write(
+                    nameE)           #nameE is the variable we were storing the input to. app.frames[Signup].nameE.get()
+                                           #Tkinter makes us use .get() to get the actual string.
+                f.write('\n')  # Splits the line so both variables are on different lines.
+                f.write(pwordE)  # Same as nameE just with pword var
+                f.close()  # Closes the file
+            cntrl.frames[Signup].signuptext.set("")  # For å resette feilmeldingsteksten
+            cntrl.frames[Signup].clear_text()  # Tømmer inntastingsfelt
+            cntrl.show_frame(Home)
+            print("Bruker registrert \n Brukernavn:", nameE, "\n Passord   :", pwordE)
 
 
 #Classes----------------------------------------------------------------------------------------------------------------
-class AppGui(tk.Tk):# Main GUI class
+class AppGui(tk.Tk):  # Main GUI class
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        tk.Tk.iconbitmap(self, default="standard_trondheim.ico") # Sets GUI icon
-        tk.Tk.wm_title(self, "Snøstyring")# Sets GUI title
+        tk.Tk.iconbitmap(self, default="standard_trondheim.ico")  # Sets GUI icon
+        tk.Tk.wm_title(self, "Snøstyring")  # Sets GUI title
 
         container = tk.Frame(self)
-        container.pack(side="top", fill="both", expand=True)# Define window
+        container.pack(side="top", fill="both", expand=True)  # Define window
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
 
-        for F in (Signup, Login, SnTypePage, LoginF, PlacementPage, Home, ReLogin, SnTypePage2, LoginF2):# Includes all pages
+
+        for F in (Signup, Login, SnTypePage, PlacementPage, Home, ReLogin, SnTypePage2):# Includes all pages
+
 
             frame = F(container, self)
             self.frames[F] = frame
@@ -93,18 +132,23 @@ class AppGui(tk.Tk):# Main GUI class
 
 
 
-class Login(tk.Frame):# Login page
+class Login(tk.Frame):  # Login page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+
+        self.signuptext = tk.StringVar()  # Deklarerer variabel for feilmeldinger
+        self.signuptext.set("")
 
         intruction = tk.Label(self, text='Innlogging\n')
         intruction.grid(sticky="E")
 
         nameL = tk.Label(self, text='Brukernavn: ')
         pwordL = tk.Label(self, text='Passord: ')
-        nameL.grid(row=1, sticky="W")
-        pwordL.grid(row=2, sticky="W")
+        melding = tk.Label(self, textvariable=self.signuptext, fg="red")  # Feilmeldinger
+        nameL.grid(row=1, sticky="E")
+        pwordL.grid(row=2, sticky="E")
+        melding.grid(row=4, columnspan=2)
 
         nameEL = tk.Entry(self)
         pwordEL = tk.Entry(self, show='*')
@@ -113,53 +157,42 @@ class Login(tk.Frame):# Login page
 
         loginB = tk.Button(self, text='Logg inn',
                               command=lambda: CheckLogin(controller,nameEL,pwordEL))
-        loginB.grid(columnspan=2, sticky="E")
+        loginB.grid(row=3, columnspan=2, sticky="E")
 
-class ReLogin(tk.Frame):# Login page
+
+class ReLogin(tk.Frame):  # Login page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+
+        self.signuptext = tk.StringVar()  # Deklarerer variabel for feilmeldinger
+        self.signuptext.set("")
 
         intruction = tk.Label(self, text='Innlogging\n')
         intruction.grid(sticky="E")
 
         nameL = tk.Label(self, text='Brukernavn: ')
         pwordL = tk.Label(self, text='Passord: ')
+        melding = tk.Label(self, textvariable=self.signuptext, fg="red")  # Feilmeldinger
         nameL.grid(row=1, sticky="W")
         pwordL.grid(row=2, sticky="W")
+        melding.grid(row=4, columnspan=2)
 
-        nameEL = tk.Entry(self)
-        pwordEL = tk.Entry(self, show='*')
-        nameEL.grid(row=1, column=1)
-        pwordEL.grid(row=2, column=1)
-
-        loginB = tk.Button(self, text='Logg inn',
-                              command=lambda: CheckReLogin(controller,nameEL,pwordEL))
-        loginB.grid(columnspan=2, sticky="E")
-
-class LoginF(tk.Frame): # Login failed page
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-
-        intruction = tk.Label(self, text='Brukernavn eller passord var feil.\n Skriv på nytt\n')
-        intruction.grid(sticky="E")  # Blahdy Blah
-
-        nameL = tk.Label(self, text='Brukernavn: ')
-        pwordL = tk.Label(self, text='Passord: ')
-        nameL.grid(row=1, sticky="W")
-        pwordL.grid(row=2, sticky="W")
-
-        nameEL = tk.Entry(self)
-        pwordEL = tk.Entry(self, show='*')
-        nameEL.grid(row=1, column=1)
-        pwordEL.grid(row=2, column=1)
+        self.nameEL = tk.Entry(self)
+        self.pwordEL = tk.Entry(self, show='*')
+        self.nameEL.grid(row=1, column=1)
+        self.pwordEL.grid(row=2, column=1)
 
         loginB = tk.Button(self, text='Logg inn',
-                              command=lambda: CheckLogin(controller,nameEL,pwordEL))
+                              command=lambda: CheckReLogin(controller))
         loginB.grid(columnspan=2, sticky="E")
 
-class SnTypePage(tk.Frame): # Snowgun type page
+    def clear_text(self):  # metode for å etterlate blanke entry-felt
+        self.nameEL.delete(0, 'end')
+        self.pwordEL.delete(0, "end")
+
+
+class SnTypePage(tk.Frame):  # Snowgun type page
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -178,6 +211,7 @@ class SnTypePage(tk.Frame): # Snowgun type page
         button2 = tk.Button(self, text="3-trinn",
                                 command=lambda: lanseType("3-trinn", 1, controller))
         button2.grid(row=3,sticky="W")
+
 
 
 class SnTypePage2(tk.Frame): # Snowgun type page
@@ -200,55 +234,48 @@ class SnTypePage2(tk.Frame): # Snowgun type page
                                 command=lambda: lanseType("3-trinn", 0, controller))
         button2.grid(row=3,sticky="W")
 
-class LoginF2(tk.Frame): # Login failed page
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-
-        intruction = tk.Label(self, text='Brukernavn eller passord var feil.\n Skriv på nytt\n')
-        intruction.grid(sticky="E")  # Blahdy Blah
-
-        nameL = tk.Label(self, text='Brukernavn: ')
-        pwordL = tk.Label(self, text='Passord: ')
-        nameL.grid(row=1, sticky="W")
-        pwordL.grid(row=2, sticky="W")
-
-        nameEL = tk.Entry(self)
-        pwordEL = tk.Entry(self, show='*')
-        nameEL.grid(row=1, column=1)
-        pwordEL.grid(row=2, column=1)
-
-        loginB = tk.Button(self, text='Logg inn',
-                              command=lambda: CheckReLogin(controller,nameEL,pwordEL))
-        loginB.grid(columnspan=2, sticky="E")
 
 class Signup(tk.Frame): # Signup page
-
+  
     def __init__(self, parent, controller):
-        global nameE
-        global pwordE
 
         tk.Frame.__init__(self, parent)
 
-        intruction = tk.Label(self,
-                              text='Skriv inn ny innloggingsinformasjon')
-        intruction.grid(sticky="E")
+        self.signuptext = tk.StringVar()  # Deklarerer variabel for feilmeldinger
+        self.signuptext.set("")
+
+        intruction = tk.Label(self, text="Skriv inn ny innloggingsinformasjon")
+        intruction.grid(sticky="E", columnspan=2)
 
         nameL = tk.Label(self, text='Brukernavn: ')
         pwordL = tk.Label(self, text='Passord: ')
-        nameL.grid(row=1, sticky="W")
-        pwordL.grid(row=2, sticky="W")
+        confirm_pwordL = tk.Label(self, text='Gjenta passord: ')
+        melding = tk.Label(self, textvariable=self.signuptext, fg="red")  # Feilmeldinger
+        nameL.grid(row=1, sticky="E")
+        pwordL.grid(row=2, sticky="E")
+        confirm_pwordL.grid(row=3, sticky="E")
+        melding.grid(row=5, columnspan=2)
 
-        nameE = tk.Entry(self)
-        pwordE = tk.Entry(self, show='*')
-        nameE.grid(row=1, column=1)
-        pwordE.grid(row=2, column=1)
 
-        signupButton = tk.Button(self, text='Registrer',
-                           command=lambda: FSSignup(controller))
-        signupButton.grid(columnspan=2, sticky="E")
+        self.nameE = tk.Entry(self)
+        self.pwordE = tk.Entry(self)
+        self.confirm_pwordE = tk.Entry(self)
+        self.nameE.grid(row=1, column=1)
+        self.pwordE.grid(row=2, column=1)
+        self.confirm_pwordE.grid(row=3, column=1)
 
-class PlacementPage(tk.Frame):# This has to be cleaned up
+        signupButton = tk.Button(self, text='Registrer', command=lambda: FSSignup(controller, 0))
+        avbrytButton = tk.Button(self, text="Avbryt", command=lambda: FSSignup(controller, 1))
+        signupButton.grid(row=4, column=0, sticky="E")
+        avbrytButton.grid(row=4, column=1, sticky="E")
+
+    def clear_text(self):  # metode for å etterlate blanke entry-felt
+        self.nameE.delete(0, 'end')
+        self.pwordE.delete(0, "end")
+        self.confirm_pwordE.delete(0, "end")
+
+
+class PlacementPage(tk.Frame):  # This has to be cleaned up
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -261,7 +288,8 @@ class PlacementPage(tk.Frame):# This has to be cleaned up
         h=4
         w=8
 
-        button1 = tk.Button(toolbar, text="9",
+        button1 = tk.Button(toolbar,
+                            text="9",
                             command=lambda: Place(9, controller),height = h, width = w)
         button1.grid(row=1,column = 1)
 
@@ -315,7 +343,7 @@ class PlacementPage(tk.Frame):# This has to be cleaned up
         button15.grid(row=3,column=5)
 
         button16 = tk.Button(toolbar, text="24",
-                            command=lambda: Place(24, controller),height = h, width = w)
+                             command=lambda: Place(24, controller),height = h, width = w)
         button16.grid(row=4,column=1)
         button17 = tk.Button(toolbar, text="25",
                             command=lambda: Place(25, controller),height = h, width = w)
@@ -360,6 +388,7 @@ class Home(tk.Frame):# Main page
         label.pack(side=LEFT)
         labe2 = tk.Label(self, textvariable=self.lanse_plassering, font=LARGE_FONT)
         labe2.pack(side=LEFT)
+
 #"Main loop"------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
 
