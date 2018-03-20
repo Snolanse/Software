@@ -41,11 +41,11 @@ def test(request):
         return(render(request, 'test/test.html',args))
     elif request.method == 'POST':
         print('var en post til test')
-        if hasattr(request.POST,'id'):
+        if request.POST.get('id','-1') != '-1':
             print('har attribute id i test')
             id = request.POST['id']
             led = LED.objects.get(id=1) 
-            if hasattr(request.POST,'stat'):
+            if request.POST.get('stat','-1') != '-1':
                 print('har state i post test')
                 led.stat = request.POST['stat']
                 led.save()
