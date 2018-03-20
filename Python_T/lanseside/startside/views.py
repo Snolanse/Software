@@ -5,7 +5,7 @@ from startside.models import Lanse, LED
 from django.views.decorators import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
-from blinky import on_off
+from Blinky import on_off
 
 # Create your views here.
 
