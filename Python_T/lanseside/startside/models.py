@@ -7,3 +7,6 @@ class Lanse(models.Model):
     auto_man = models.IntegerField()
     man_steg = models.IntegerField()
     trykk = models.IntegerField()
+
+class LED(models.Model):
+    stat = models.BooleanField()

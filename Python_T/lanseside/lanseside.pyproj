@@ -38,10 +38,14 @@
     <Folder Include="startside\" />
     <Folder Include="startside\migrations\" />
     <Folder Include="C:\Users\marius\Documents\Bachelor\Software\Python_T\lanseside\startside\static\lansestyring\" />
+    <Folder Include="startside\static\lansestyring\" />
     <Folder Include="startside\static\startside\" />
+    <Folder Include="startside\static\test\" />
     <Folder Include="startside\templates\" />
     <Folder Include="startside\static\" />
     <Folder Include="C:\Users\marius\Documents\Bachelor\Software\Python_T\lanseside\startside\templates\lansestyring\" />
+    <Folder Include="startside\templates\lansestyring\" />
+    <Folder Include="startside\templates\test\" />
     <Folder Include="startside\templates\startside\" />
   </ItemGroup>
   <ItemGroup>
@@ -55,10 +59,13 @@
     <Content Include="startside\static\startside\lanser.js" />
     <Content Include="startside\static\startside\startside.css" />
     <Content Include="startside\static\startside\startside.js" />
+    <Content Include="startside\static\test\test.css" />
+    <Content Include="startside\static\test\test.js" />
     <Content Include="startside\templates\base.html" />
     <Content Include="startside\templates\lansestyring\lansestyring.html" />
     <Content Include="startside\templates\startside\lanser.html" />
     <Content Include="startside\templates\startside\startside.html" />
+    <Content Include="startside\templates\test\test.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

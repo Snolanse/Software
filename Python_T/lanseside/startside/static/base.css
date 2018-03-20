@@ -1,26 +1,35 @@
-﻿* {
+﻿/**{
     margin: 0;
     padding: 0;
     border: 0;
-}
+}*/
 
 body {
     background-color: #FFFFFF;
 }
 
-#wrapper {
-    position: fixed;
-    top: 0px;
-    margin: 0px;
-    padding: 0px;
+#header {
+    top:0;
+    left:0;
+    height: 100%;
     width: 100%;
+    position: absolute;
+    overflow: auto;
+}
+
+#wrapper {
+    width: 100%;
+    height: auto;
     background-color: #464646;
-    overflow: hidden;
+    float:left;
+    position: relative;
+    overflow: auto;
 }
 
 #toppmeny {
-    width: 1195px;
+    width: 100%;
     float: left;
+    /*overflow: visible;*/
 }
 
     #toppmeny a.active {
@@ -31,6 +40,7 @@ body {
     #toppmeny ul {
         text-align: left;
         list-style-type: none;
+        padding: 0;
 
     }
 
@@ -54,4 +64,9 @@ body {
     #toppmeny ul li:hover {
         text-decoration: underline;
     }
- 
+
+#contentwrapper {
+    /*margin-top: 52px;*/
+    /*position: relative;*/
+
+}

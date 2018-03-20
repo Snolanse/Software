@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
-from startside.models import Lanse
+from startside.models import Lanse, LED
 from django.views.decorators import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib.auth.decorators import login_required
+from blinky import on_off
 
 # Create your views here.
 
+@login_required
 @ensure_csrf_cookie
 def info(request):
     if request.method == 'GET':
@@ -23,6 +26,27 @@ def info(request):
 @ensure_csrf_cookie
 def startside(request):
     return(render(request, 'startside/startside.html'))
+
+@ensure_csrf_cookie
+def test(request):
+    if request.method == 'GET':
+        led = LED.objects.all()[0]
+        state = led.stat
+        args = {
+            'state': state}
+        return(render(request, 'test/test.html',args))
+    elif request.method == 'POST':
+        if hasattr(request.POST,'id'):
+            id = request.POST['id']
+            led = LED.objects.get(id=1) 
+            if hasattr(request.POST,'state'):
+                led.stat = request.POST['state']
+                led.save()
+                on_off(led.stat)
+            del led['_state']
+            return JsonResponse()
+    else:
+        return HttpResponse('')
 
 @ensure_csrf_cookie
 def lanser(request):
