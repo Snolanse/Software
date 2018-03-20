@@ -50,6 +50,7 @@ def test(request):
                 led.stat = request.POST['stat']
                 led.save()
                 try:
+                    print(led.stat)
                     on_off(led.stat)
                     print('har skrevet til led')
                 except:
