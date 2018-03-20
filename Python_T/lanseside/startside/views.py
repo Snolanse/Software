@@ -40,19 +40,24 @@ def test(request):
             'state': state}
         return(render(request, 'test/test.html',args))
     elif request.method == 'POST':
+        print('var en post til test')
         if hasattr(request.POST,'id'):
+            print('har attribute id i test')
             id = request.POST['id']
             led = LED.objects.get(id=1) 
             if hasattr(request.POST,'state'):
+                print('har state i post test')
                 led.stat = request.POST['state']
                 led.save()
                 try:
                     on_off(led.stat)
+                    print('har skrevet til led')
                 except:
                     print('fikk ikke slått på led')
             led = vars(led)
             del led['_state']
             return JsonResponse(led)
+            print('har respondert til test post')
         else:
             return HttpResponse('')
     else:
