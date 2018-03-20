@@ -1,10 +1,8 @@
-
-def __init__():
-    import reprlib.GPIO as GPIO
-    LedPin = 11
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(LedPin, GPIO.OUT)
-    GPIO.output(LedPin, GPIO.HIGH)
+import RPi.GPIO as GPIO
+LedPin = 11
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(LedPin, GPIO.OUT)
+GPIO.output(LedPin, GPIO.HIGH)
 
 def on_off(i):
     if i == 1:
