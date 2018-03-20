@@ -18,5 +18,6 @@ function toggleLED() {
     posting.done(function (data) {
         console.log('har oppdatert siden')
         console.log(data.stat)
+        document.getElementById("led_status").innerHTML = "LED STATUS: " + data.stat
     })
 }

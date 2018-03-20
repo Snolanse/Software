@@ -5,9 +5,7 @@ GPIO.setup(LedPin, GPIO.OUT)
 GPIO.output(LedPin, GPIO.HIGH)
 
 def on_off(i):
-    print('i motatt av on_off er :')
-    print(i)
-    if i == 1:
+    if i == '1':
         GPIO.output(LedPin, GPIO.HIGH)
         print('led on')
     else:
