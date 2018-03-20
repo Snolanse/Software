@@ -6,7 +6,7 @@ from django.views.decorators import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
 try:
-    from ..modules.Blinky import on_off
+    from modules.Blinky import on_off
 except:
     print('Fikk ikke lasta blinky')
 finally:
