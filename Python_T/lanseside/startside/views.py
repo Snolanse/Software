@@ -45,9 +45,9 @@ def test(request):
             print('har attribute id i test')
             id = request.POST['id']
             led = LED.objects.get(id=1) 
-            if request.POST.get('state','-1') != '-1':
+            if hasattr(request.POST,'stat'):
                 print('har state i post test')
-                led.stat = request.POST['state']
+                led.stat = request.POST['stat']
                 led.save()
                 try:
                     on_off(led.stat)
@@ -57,7 +57,7 @@ def test(request):
             led = vars(led)
             del led['_state']
             return JsonResponse(led)
-            print('har respondert til test post')
+            print('')
         else:
             return HttpResponse('')
     else:
