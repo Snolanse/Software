@@ -1,4 +1,5 @@
 function toggleLED() {
+    token = getCookie('csrftoken')
     status = document.getElementById('led_status').innerHTML.substr(12)
     if (status == 'True') {
         led_status = 0;
