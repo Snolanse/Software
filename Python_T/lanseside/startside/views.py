@@ -45,7 +45,7 @@ def test(request):
             print('har attribute id i test')
             id = request.POST['id']
             led = LED.objects.get(id=1) 
-            if hasattr(request.POST,'state'):
+            if request.POST.get('state','-1') != '-1':
                 print('har state i post test')
                 led.stat = request.POST['state']
                 led.save()
