@@ -50,8 +50,11 @@ def test(request):
                     on_off(led.stat)
                 except:
                     print('fikk ikke slått på led')
+            led = vars(led)
             del led['_state']
-            return JsonResponse()
+            return JsonResponse(led)
+        else:
+            return HttpResponse('')
     else:
         return HttpResponse('')
 
