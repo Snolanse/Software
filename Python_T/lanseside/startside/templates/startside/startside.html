@@ -10,8 +10,14 @@
 
 {% endblock %}
 
+
+
 {% block body %}
-
-
-
+<div>
+    {% if user.is_authenticated %}
+    <h1>Innlogget som: {{ user.username }}</h1>
+    {% else %}
+    Du er ikke logget inn
+    {% endif %}
+</div>
 {% endblock %}
