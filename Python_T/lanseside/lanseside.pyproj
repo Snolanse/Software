@@ -24,6 +24,7 @@
     <Compile Include="lanseside\wsgi.py" />
     <Compile Include="lanseside\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="modules\Blinky.py" />
     <Compile Include="startside\admin.py" />
     <Compile Include="startside\apps.py" />
     <Compile Include="startside\migrations\__init__.py" />
@@ -35,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lanseside" />
+    <Folder Include="modules\" />
     <Folder Include="startside\" />
     <Folder Include="startside\migrations\" />
     <Folder Include="C:\Users\marius\Documents\Bachelor\Software\Python_T\lanseside\startside\static\lansestyring\" />
