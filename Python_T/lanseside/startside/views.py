@@ -43,9 +43,9 @@ def test(request):
         return(render(request, 'test/test.html',args))
     elif request.method == 'POST':
         bronn = request.POST['bronnid']
-        print(bronn)
+        #print(bronn)
         bronn_nr = int(bronn[(bronn.find('bronn'))+5:])
-        print(bronn_nr)
+        #print(bronn_nr)
         lanse = Lanse.objects.all().order_by('plassering_bronn')[bronn_nr-1]
         lansetype = Lansetyper.objects.all().order_by('lanseid')[lanse.lanse_kategori-1]
         ts = time.time()
