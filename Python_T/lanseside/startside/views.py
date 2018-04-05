@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
-from startside.models import Lanse, LED
+from startside.models import Lanse, LED, Lansetyper
 from django.views.decorators import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
+from modules.lanse import getSData, wetbulb
+import time
 try:
     from modules.Blinky import on_off
 except:
@@ -40,27 +42,46 @@ def test(request):
             'state': state}
         return(render(request, 'test/test.html',args))
     elif request.method == 'POST':
-        print('var en post til test')
-        if request.POST.get('id','-1') != '-1':
-            print('har attribute id i test')
-            id = request.POST['id']
-            led = LED.objects.get(id=1) 
-            if request.POST.get('stat','-1') != '-1':
-                print('har state i post test')
-                led.stat = request.POST['stat']
-                led.save()
-                try:
-                    print(led.stat)
-                    on_off(led.stat)
-                    print('har skrevet til led')
-                except:
-                    print('fikk ikke slått på led')
-            led = vars(led)
-            del led['_state']
-            return JsonResponse(led)
-            print('')
+        bronn = request.POST['bronnid']
+        print(bronn)
+        bronn_nr = int(bronn[(bronn.find('bronn'))+5:])
+        print(bronn_nr)
+        lanse = Lanse.objects.all().order_by('plassering_bronn')[bronn_nr-1]
+        lansetype = Lansetyper.objects.all().order_by('lanseid')[lanse.lanse_kategori-1]
+        ts = time.time()
+        lanse.timestamp = ts
+        lanse.save()
+        get = request.POST['get']
+        if get == '1':
+            if lanse.lokal_maling == 0:
+                vdata = getSData()
+                lanse.luftfukt = lfukt = vdata['hum']
+                lanse.ltrykk = vdata['press']
+                lanse.temperatur = vdata['temp_2']
+                lanse.save()
+
+            lanse = vars(lanse)
+            lansetype = vars(lansetype)
+            del lanse['_state']
+            del lansetype['_state']
+
+            data = {'lanse':lanse, 'lansetype':lansetype}
+
+            return JsonResponse(data)
+        elif get == '0':
+            lanse.vtrykk = request.POST['vtrykk']
+
+            lanse.save()
+
+            lanse = vars(lanse)
+            lansetype = vars(lansetype)
+            del lanse['_state']
+            del lansetype['_state']
+
+            data = {'timestamp': ts}
+            return JsonResponse(data)
         else:
-            return HttpResponse('')
+            return JsonResponse({'error':-1})
     else:
         return HttpResponse('')
 
@@ -81,17 +102,18 @@ def valgtlanse(request):
         return JsonResponse({'info': 'dette var en get'})
     if request.method == 'POST':
         try:
-            data = request.POST['test']
-            print(data)
-            lanse_nr = int(data[(data.find('Lanse'))+5:])
-            print(lanse_nr)
-            lanse = Lanse.objects.all().order_by('lanse_nr')[lanse_nr-1]
-            ant_steg = lanse.ant_steg
+            bronn = request.POST['bronnid']
+            print(bronn)
+            bronn_nr = int(bronn[(bronn.find('bronn'))+5:])
+            print(bronn_nr)
+            lanse = Lanse.objects.all().order_by('plassering_bronn')[bronn_nr-1]
+            lansetype = Lansetyper.objects.all().order_by('lanseid')[lanse.lanse_kategori-1]
+            ant_steg = lansetype.ant_steg
         except:
-            data = 'ingen lanse'
+            bronn = 'ingen lanse'
             ant_steg = 0
         finally:
-            args = {'data': data,
+            args = {'data': bronn,
                     'ant_steg': ant_steg
                     }
             #return JsonResponse(args)

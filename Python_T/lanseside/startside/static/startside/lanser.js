@@ -70,7 +70,7 @@ function last_lanse(id) {
     token = getCookie('csrftoken');
     data = {
             'csrfmiddlewaretoken': token,
-            'test': id
+            'bronnid': id
     };
     var posting = $.post("valgtlanse", data);
 

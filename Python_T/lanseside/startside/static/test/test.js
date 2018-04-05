@@ -11,7 +11,8 @@ function toggleLED() {
     data = {
         'csrfmiddlewaretoken': token,
         'id': 1,
-        'stat': led_status
+        'stat': led_status,
+        'bronnid': 'bronn1'
     };
     var posting = $.post("test", data);
 
