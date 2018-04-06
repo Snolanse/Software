@@ -69,8 +69,10 @@ def test(request):
 
             return JsonResponse(data)
         elif get == '0':
-            lanse.vtrykk = request.POST['vtrykk']
-
+            for x in request.POST:
+                if hasattr(lanse,x):
+                    lanse.x = request.POST[x]
+            
             lanse.save()
 
             lanse = vars(lanse)
