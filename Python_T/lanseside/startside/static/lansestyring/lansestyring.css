@@ -144,5 +144,6 @@ input:checked + .slider:before {
 #tekstfelt {
     width: auto;
     float: left;
+    list-style: none;
 }
 /*

@@ -2,12 +2,16 @@ var iknapper;
 var jsjekk;
 var kslett;
 var stegvalgknapper = "";
-var testnummer;
 var valgtsteg;
 var steg;
 var node = "";
 var nodelabel = "";
 var nodespan = "";
+var antknapper;
+var markertlanse = "";
+var bestemmarkering;
+var hentstegknapper;
+var psjekk;
 
 function leggtilknapper() {
 
@@ -61,8 +65,52 @@ function oppdatervalgtsteg() {
     }
     document.getElementById("demo").innerHTML = "valgt steg: " + valgtsteg;
 }
-function minfunksjon() {
 
-    document.getElementById("2").checked = true;
+function automan() {
 
+    hentstegknapper = document.getElementsByName("radiogruppe");
+
+    if (document.getElementById("auto").checked === true ) {
+
+        for (psjekk = 0; psjekk < hentstegknapper.length; psjekk++) {
+
+            document.getElementById(psjekk).setAttribute("disabled", "disabled");
+
+        }
+    }
+    if (document.getElementById("manuell").checked === true) {
+
+        for (psjekk = 0; psjekk < hentstegknapper.length; psjekk++) {
+
+            document.getElementById(psjekk).removeAttribute("disabled", "disabled");
+
+        }
+    }
+}
+
+function onload() {
+    if (document.getElementById("auto").value === "True") { document.getElementById("auto").checked = true }
+    if (document.getElementById("auto").value === "False") { document.getElementById("manuell").checked = true }
+    automan()
+
+}
+setTimeout(onload, 0)
+
+
+function oppd_server(id, datainnput) {
+    token = getCookie('csrftoken');
+    data = {
+        'csrfmiddlewaretoken': token, 
+        'get': 0,
+        'bronnid': 'bronn' + id
+
+    };
+
+    for (var i = 0; i < Object.keys(datainnput).length; i++) {
+        data[Object.keys(datainnput)[i]] = datainnput[Object.keys(datainnput)[i]];
+    };
+
+    var posting = $.post("test", data);
+
+    posting.done();
 }

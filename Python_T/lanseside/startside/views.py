@@ -71,7 +71,7 @@ def test(request):
         elif get == '0':
             for x in request.POST:
                 if hasattr(lanse,x):
-                    lanse.x = request.POST[x] 
+                    setattr(lanse, x, request.POST[x] )
             lanse.save()
 
             lanse = vars(lanse)
@@ -103,6 +103,7 @@ def valgtlanse(request):
         return JsonResponse({'info': 'dette var en get'})
     if request.method == 'POST':
         try:
+            args = {}
             bronn = request.POST['bronnid']
             print(bronn)
             bronn_nr = int(bronn[(bronn.find('bronn'))+5:])
@@ -110,13 +111,20 @@ def valgtlanse(request):
             lanse = Lanse.objects.all().order_by('plassering_bronn')[bronn_nr-1]
             lansetype = Lansetyper.objects.all().order_by('lanseid')[lanse.lanse_kategori-1]
             ant_steg = lansetype.ant_steg
+
+            lanse = vars(lanse)
+            del lanse['_state']
+            lansetype = vars(lansetype)
+            del lansetype['_state']
+
+            for x in lanse:
+                args[x] = lanse[x]
+            for x in lansetype:
+                args[x] = lansetype[x]
         except:
-            bronn = 'ingen lanse'
-            ant_steg = 0
+            args[bronn] = 'ingen lanse'
+            args[ant_steg] = 0
         finally:
-            args = {'data': bronn,
-                    'ant_steg': ant_steg
-                    }
             #return JsonResponse(args)
             return(render(request, 'lansestyring/lansestyring.html', args))
     else:

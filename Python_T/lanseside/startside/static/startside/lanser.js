@@ -82,3 +82,5 @@ function last_lanse(id) {
         console.log('kjorer med 0.2 delay')
     })
 }
+
+function go() { last_lanse('bronn2'); setTimeout(go, 1000) }

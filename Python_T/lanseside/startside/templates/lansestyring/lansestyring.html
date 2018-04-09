@@ -8,7 +8,7 @@
     <ul>
         <li>
             Lanse ID:
-            <input name="lansenummer" type="text" id="lansenummer" value="{{data}}" readonly>
+            <input name="lansenummer" type="text" id="lansenummer" value="{{plassering_bronn}}" readonly>
         </li>
         <li>
             Antall steg:
@@ -19,11 +19,13 @@
             <input name="trykk" type="text" id="trykk" readonly />
         </li>
         <li>
-            <label class="container">Auto <input name="radio" type="radio" id="auto" onclick="automan()" value="auto"> <span class="checkmark"></span></label>
+            <label class="container">Auto <input name="radio" type="radio" id="auto" onclick="automan();
+    oppd_server(String(document.getElementById('lansenummer').value), { 'auto_man': 1 })" value="{{auto_man}}"> <span class="checkmark"></span></label>
         </li>
 
         <li>
-            <label class="container">Manuell <input name="radio" type="radio" id="manuell" onclick="automan()" value="manuell"> <span class="checkmark"></span></label>
+            <label class="container">Manuell <input name="radio" type="radio" id="manuell" onclick="automan();
+    oppd_server(String(document.getElementById('lansenummer').value), { 'auto_man': 0 })" value="manuell"> <span class="checkmark"></span></label>
         </li>
     </ul>
 </div>
