@@ -71,8 +71,7 @@ def test(request):
         elif get == '0':
             for x in request.POST:
                 if hasattr(lanse,x):
-                    lanse.x = request.POST[x]
-            
+                    lanse.x = request.POST[x] 
             lanse.save()
 
             lanse = vars(lanse)
