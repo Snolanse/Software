@@ -6,7 +6,7 @@ do
 
 wshshell.sendkeys "{CAPSLOCK}" 
 
-wscript.sleep 100 
+wscript.sleep 900 
 
 wshshell.sendkeys "k" 
 
